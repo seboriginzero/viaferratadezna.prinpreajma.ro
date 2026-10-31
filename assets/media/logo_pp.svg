@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="15 15 250 235" width="100%" height="100%">
+  <!-- Solid Black Background #000000 -->
+  <rect x="15" y="15" width="250" height="235" fill="#000000" />
+
+  <defs>
+    <clipPath id="p1Stencil">
+      <path d="M 98 80
+    L 58 80
+    A 26 26 0 0 0 32 106
+    L 32 226
+    A 8 8 0 0 0 40 234
+    L 56 234
+    A 8 8 0 0 0 64 226
+    L 64 182
+    L 98 182
+    L 98 156
+    L 78 156
+    A 14 14 0 0 1 64 142
+    L 64 120
+    A 14 14 0 0 1 78 106
+    L 98 106
+    Z M 102.5 80
+    L 110 80
+    A 26 26 0 0 1 136 106
+    L 136 156
+    A 26 26 0 0 1 110 182
+    L 102.5 182
+    L 102.5 156
+    L 96 156
+    A 14 14 0 0 0 110 142
+    L 110 120
+    A 14 14 0 0 0 96 106
+    L 102.5 106
+    Z" />
+    </clipPath>
+    <clipPath id="p2Stencil">
+      <path d="M 210 36
+    L 170 36
+    A 26 26 0 0 0 144 62
+    L 144 182
+    A 8 8 0 0 0 152 190
+    L 168 190
+    A 8 8 0 0 0 176 182
+    L 176 138
+    L 210 138
+    L 210 112
+    L 190 112
+    A 14 14 0 0 1 176 98
+    L 176 76
+    A 14 14 0 0 1 190 62
+    L 210 62
+    Z M 214.5 36
+    L 222 36
+    A 26 26 0 0 1 248 62
+    L 248 112
+    A 26 26 0 0 1 222 138
+    L 214.5 138
+    L 214.5 112
+    L 208 112
+    A 14 14 0 0 0 222 98
+    L 222 76
+    A 14 14 0 0 0 208 62
+    L 214.5 62
+    Z" />
+    </clipPath>
+  </defs>
+
+  <!-- P1 (Stânga/Jos) cu ROGVAIV Normal -->
+  <g clip-path="url(#p1Stencil)">
+<rect x="25" y="80" width="115" height="22" fill="#e52420" />
+<rect x="25" y="102" width="115" height="22" fill="#f56f1a" />
+<rect x="25" y="124" width="115" height="22" fill="#f9bc15" />
+<rect x="25" y="146" width="115" height="22" fill="#1ea844" />
+<rect x="25" y="168" width="115" height="22" fill="#0f72cd" />
+<rect x="25" y="190" width="115" height="22" fill="#2c35a6" />
+<rect x="25" y="212" width="115" height="22" fill="#6b2c9b" />
+</g>
+
+  <!-- Legătura Sebi 'S' (Conectează Verde de Verde: #1ea844) -->
+  <path d="M 144 107
+  C 140 112, 135.5 118, 135.5 127
+  C 135.5 135, 145.5 139, 145.5 148
+  C 145.5 155, 141 161, 136 164
+  C 137 158, 140.5 152, 140 144
+  C 139.5 136, 130.5 131, 131 122
+  C 131.5 114, 138 109, 144 107
+  Z" fill="#1ea844" />
+
+  <!-- P2 (Dreapta/Sus) cu ROGVAIV Inversat -->
+  <g clip-path="url(#p2Stencil)">
+<rect x="138" y="36" width="115" height="22" fill="#6b2c9b" />
+<rect x="138" y="58" width="115" height="22" fill="#2c35a6" />
+<rect x="138" y="80" width="115" height="22" fill="#0f72cd" />
+<rect x="138" y="102" width="115" height="22" fill="#1ea844" />
+<rect x="138" y="124" width="115" height="22" fill="#f9bc15" />
+<rect x="138" y="146" width="115" height="22" fill="#f56f1a" />
+<rect x="138" y="168" width="115" height="22" fill="#e52420" />
+</g>
+</svg>
