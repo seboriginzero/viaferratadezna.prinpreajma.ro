@@ -1374,7 +1374,7 @@ body.motion-paused .hero__media video {
 
 @media (min-width: 1024px) {
   .video-showcase {
-    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-columns: 1fr;
     padding: 2rem;
   }
 }
