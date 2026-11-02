@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ro" class="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Via Ferrata Dezna — Fișa traseului (Grad B), podul indian de 25 m, echipament și acces | Prin Preajmă</title>
   <meta name="description" content="Ghidul complet pentru Via Ferrata Cetate Dezna (județul Arad): dificultate B, ~600 m traseu (~150 m sectoare via ferrata), diferență de nivel 120 m, pod indian de 25 m, echipament obligatoriu și contact oficial.">
   <link rel="canonical" href="https://viaferratadezna.prinpreajma.ro/">
+
+  <!-- Theme State Initializer (Zero FOUC - Sincronizat cu prinpreajma.ro) -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('pp_theme');
+        if (savedTheme === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.remove('light');
+          document.documentElement.classList.add('dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
 
   <!-- Open Graph / Distribuire Socială -->
   <meta property="og:type" content="website">
@@ -114,6 +130,17 @@
           <a class="site-nav__link" href="#legenda-cetatii">Cetatea &amp; Legenda</a>
           <a class="site-nav__link" href="#distribuie">Distribuie</a>
         </div>
+        <button
+          type="button"
+          id="theme-toggle-btn"
+          class="theme-toggle-btn"
+          aria-label="Comută tema (Dark / Light)"
+          title="Comută tema (Dark / Light)"
+        >
+          <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        </button>
         <a class="site-nav__cta" href="#contact-echipament" data-track="contact_via_ferrata" data-track-label="Header CTA Echipament">Echipament &amp; Ghidaj</a>
       </nav>
     </div>
@@ -415,7 +442,7 @@
 
         <div class="truth-grid">
           <article class="truth-card">
-            <span class="truth-card__tag" style="color: #9e6116;">1. Echipament obligatoriu (fără excepții)</span>
+            <span class="truth-card__tag">1. Echipament obligatoriu (fără excepții)</span>
             <h3 class="truth-card__title">Ce trebuie să porți pe cablu</h3>
             <ul style="padding-left: 1.15rem; margin: 0;">
               <li><strong>Cască de alpinism/escaladă</strong> omologată (protecție împotriva pietrelor dislocate și a lovirii de stâncă);</li>
@@ -426,14 +453,14 @@
           </article>
 
           <article class="truth-card">
-            <span class="truth-card__tag" style="color: #9e6116;">2. Începători, copii și reguli pe cablu</span>
+            <span class="truth-card__tag">2. Începători, copii și reguli pe cablu</span>
             <h3 class="truth-card__title">Când ai nevoie de ghid sau coardă</h3>
             <p>Dacă ești la prima experiență pe via ferrata, parcurge traseul alături de un ghid autorizat sau o persoană cu experiență solidă care îți poate verifica echiparea și manevrele la trecerea peste ancoraje.</p>
             <p><strong>Atenție pentru copii și persoane cu greutate redusă:</strong> Absorbitoarele de energie standard (EN 958) sunt proiectate pentru o greutate de minimum 40 kg, iar distanța dintre scoabe și cablu necesită o anvergură suficientă. Copiii sau persoanele nesigure trebuie asigurate suplimentar cu o coardă dinamică de către un adult experimentat sau ghid.</p>
           </article>
 
           <article class="truth-card">
-            <span class="truth-card__tag" style="color: #9e6116;">3. Meteo, expunere și retragere</span>
+            <span class="truth-card__tag">3. Meteo, expunere și retragere</span>
             <h3 class="truth-card__title">Reguli esențiale pe teren</h3>
             <ul style="padding-left: 1.15rem; margin: 0;">
               <li><strong>Nu intra pe traseu</strong> în caz de ploaie, furtună, risc de descărcări electrice (cablul metalic atrage trăsnetul!) sau gheață;</li>
@@ -445,14 +472,14 @@
         </div>
 
         <!-- Contact oficial pentru echipament și tururi ghidate -->
-        <div class="narrative-hook" id="contact-echipament" style="background: #171e1c; color: #f4f1ea; margin-top: 2rem; margin-bottom: 0;">
+        <div class="narrative-hook" id="contact-echipament" style="margin-top: 2rem; margin-bottom: 0;">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: center;">
             <div>
               <span class="section__kicker">Contact oficial verificat · SC Transilvania Cave Diving SRL</span>
-              <h3 style="color: #f4f1ea; font-family: var(--font-serif); font-size: 1.6rem; margin: 0 0 0.65rem;">
+              <h3 style="color: var(--text-primary); font-family: var(--font-serif); font-size: 1.6rem; margin: 0 0 0.65rem;">
                 Ai nevoie de închiriere echipament sau informații actualizate despre traseu?
               </h3>
-              <p style="color: #c6ccc9; margin: 0;">
+              <p style="color: var(--text-secondary); margin: 0;">
                 Nu inventăm tarife sau programe fixe: pentru disponibilitatea echipamentului complet de via ferrata, condițiile la zi de pe traseu sau programarea unei ture ghidate, ia legătura direct cu echipa <strong>Transilvania Cave Diving</strong> (cei care au amenajat traseul).
               </p>
             </div>
