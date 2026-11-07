@@ -1,10 +1,8 @@
 /* ==========================================================================
-   PRIN PREAJMĂ — Void Aesthetics, Apple HIG & Figma Light/Dark Design System
+   PRIN PREAJMĂ — Semnătura Arhitecturală originZero (Colțuri Drepte 90° & Sticlă Mată)
    Paletă 100% sincronizată cu prinpreajma.ro (Dark Void #000000 / Light Slate #f8fafc)
    Destinații: Cetatea Deznei · Via Ferrata Dezna · Stațiunea Moneasa
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root,
 html.dark,
@@ -17,27 +15,34 @@ body.theme-moneasa {
 
   --max-w: 1280px;
   --max-w-narrow: 860px;
-  --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-pill: 9999px;
+
+  /* Semnătura originZero — Colțuri Drepte Arhitecturale (90°) */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Paleta Oficială prinpreajma.ro — DARK MODE (Void & Obsidian Zinc) */
+  /* Paleta Oficială prinpreajma.ro — DARK MODE (Void & Frosted Obsidian Glass) */
   --color-void: #000000;
-  --color-surface-obsidian: #09090b;
-  --color-surface-elevated: #121217;
-  --color-surface-hover: #18181f;
+  --color-surface-obsidian: rgba(9, 9, 14, 0.64);
+  --color-surface-elevated: rgba(18, 18, 26, 0.74);
+  --color-surface-hover: rgba(28, 28, 40, 0.82);
 
   --bg-primary: #000000;
-  --bg-secondary: #09090b;
-  --bg-elevated: #121217;
-  --bg-card: #09090b;
-  --bg-glass: rgba(0, 0, 0, 0.85);
-  --surface-warm: #09090b;
-  --surface-warm-card: #121217;
+  --bg-secondary: rgba(10, 10, 16, 0.56);
+  --bg-elevated: rgba(18, 18, 26, 0.72);
+  --bg-card: rgba(12, 12, 18, 0.62);
+  --bg-glass: rgba(6, 6, 10, 0.76);
+  --surface-warm: rgba(10, 10, 16, 0.56);
+  --surface-warm-card: rgba(16, 16, 24, 0.68);
+
+  /* Efectul Glassmorphism (Sticlă Mată — Frosted Glass) */
+  --glass-blur: blur(22px) saturate(180%);
+  --glass-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), inset 1px 0 0 0 rgba(255, 255, 255, 0.05);
 
   --text-primary: #f4f4f5;
   --text-heading: #ffffff;
@@ -56,36 +61,51 @@ body.theme-moneasa {
   --accent-bright: #22d3ee;
   --accent-contrast: #000000;
   --accent-soft: rgba(0, 240, 255, 0.10);
+  --dest-accent: #00f0ff;
 
-  --border-faint: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgba(255, 255, 255, 0.16);
-  --border-hover: rgba(255, 255, 255, 0.24);
-  --border-focus: rgba(0, 240, 255, 0.5);
+  --border-faint: rgba(255, 255, 255, 0.11);
+  --border-subtle: rgba(255, 255, 255, 0.20);
+  --border-hover: rgba(0, 240, 255, 0.48);
+  --border-focus: rgba(0, 240, 255, 0.65);
 
-  --shadow-editorial: 0 4px 24px -1px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --shadow-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 240, 255, 0.08);
+  --shadow-editorial: 0 8px 32px -4px rgba(0, 0, 0, 0.72), var(--glass-specular);
+  --shadow-hover: 0 16px 40px -6px rgba(0, 0, 0, 0.9), 0 0 24px rgba(0, 240, 255, 0.14), inset 0 1px 0 0 rgba(0, 240, 255, 0.28);
+}
+
+/* Tokeni subtili de personalitate cromatică per destinație */
+body.theme-cetate {
+  --dest-accent: #e5c483;
+}
+body.theme-viaferrata {
+  --dest-accent: #f59e0b;
+}
+body.theme-moneasa {
+  --dest-accent: #10b981;
 }
 
 /* ==========================================================================
    PALETA OFICIALĂ PRINPREAJMA.RO — LIGHT MODE (html.light)
-   Guarantees 100% Visual Clarity, WCAG AAA/AA Contrast & Zero Bleed
+   Frosted Daylight Quartz Glass · WCAG AAA/AA Contrast & Colțuri Drepte 90°
    ========================================================================== */
 html.light,
 html.light body.theme-cetate,
 html.light body.theme-viaferrata,
 html.light body.theme-moneasa {
   --color-void: #f8fafc;
-  --color-surface-obsidian: #ffffff;
-  --color-surface-elevated: #ffffff;
-  --color-surface-hover: #f1f5f9;
+  --color-surface-obsidian: rgba(255, 255, 255, 0.72);
+  --color-surface-elevated: rgba(255, 255, 255, 0.86);
+  --color-surface-hover: rgba(241, 245, 249, 0.92);
 
   --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-elevated: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.92);
-  --surface-warm: #f1f5f9;
-  --surface-warm-card: #ffffff;
+  --bg-secondary: rgba(241, 245, 249, 0.68);
+  --bg-elevated: rgba(255, 255, 255, 0.84);
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-glass: rgba(255, 255, 255, 0.80);
+  --surface-warm: rgba(241, 245, 249, 0.68);
+  --surface-warm-card: rgba(255, 255, 255, 0.78);
+
+  --glass-blur: blur(22px) saturate(180%);
+  --glass-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 1px 0 0 0 rgba(255, 255, 255, 0.65);
 
   --text-primary: #0f172a;
   --text-heading: #0f172a;
@@ -95,7 +115,7 @@ html.light body.theme-moneasa {
   --text-on-warm-muted: #475569;
 
   --accent-cyan: #0284c7;
-  --accent-cyan-glow: rgba(2, 132, 199, 0.15);
+  --accent-cyan-glow: rgba(2, 132, 199, 0.18);
   --accent-violet: #7c3aed;
   --accent-emerald: #059669;
   --accent-amber: #d97706;
@@ -105,13 +125,23 @@ html.light body.theme-moneasa {
   --accent-contrast: #ffffff;
   --accent-soft: rgba(2, 132, 199, 0.10);
 
-  --border-faint: #e2e8f0;
-  --border-subtle: #cbd5e1;
-  --border-hover: #94a3b8;
-  --border-focus: rgba(2, 132, 199, 0.5);
+  --border-faint: rgba(15, 23, 42, 0.11);
+  --border-subtle: rgba(15, 23, 42, 0.20);
+  --border-hover: rgba(2, 132, 199, 0.55);
+  --border-focus: rgba(2, 132, 199, 0.65);
 
-  --shadow-editorial: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 16px -2px rgba(15, 23, 42, 0.05);
-  --shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+  --shadow-editorial: 0 8px 28px -4px rgba(15, 23, 42, 0.06), var(--glass-specular);
+  --shadow-hover: 0 16px 36px -6px rgba(15, 23, 42, 0.11), 0 0 20px rgba(2, 132, 199, 0.12), inset 0 1px 0 0 rgba(2, 132, 199, 0.25);
+}
+
+html.light body.theme-cetate {
+  --dest-accent: #b45309;
+}
+html.light body.theme-viaferrata {
+  --dest-accent: #d97706;
+}
+html.light body.theme-moneasa {
+  --dest-accent: #059669;
 }
 
 /* Reset & Fundație Tipografică */
@@ -139,18 +169,28 @@ body {
   line-height: 1.68;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Ambient Light Field & Architectural Grid pentru refracția Sticlei Mate */
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 18% 12%, rgba(0, 240, 255, 0.09) 0%, transparent 42%),
+    radial-gradient(circle at 84% 24%, rgba(139, 92, 246, 0.07) 0%, transparent 38%),
+    radial-gradient(circle at 50% 68%, rgba(16, 185, 129, 0.06) 0%, transparent 45%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  background-attachment: fixed;
 }
 
 html.light body {
   background-color: #f8fafc !important;
   color: #0f172a !important;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.05) 0%, transparent 60%),
-    radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 40%),
-    linear-gradient(to bottom, #f8fafc, #ffffff) !important;
+    radial-gradient(circle at 18% 12%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 84% 24%, rgba(124, 58, 237, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 68%, rgba(5, 150, 105, 0.06) 0%, transparent 45%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
+  background-attachment: fixed !important;
 }
 
 h1, h2, h3, h4, h5, h6, blockquote {
@@ -164,7 +204,7 @@ p, li {
   -webkit-text-wrap: pretty;
 }
 
-/* Custom Scrollbar (prinpreajma.ro style) */
+/* Custom Scrollbar — originZero Colțuri Drepte */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -176,11 +216,11 @@ p, li {
 
 ::-webkit-scrollbar-thumb {
   background: #27272a;
-  border-radius: 9999px;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #00f0ff;
 }
 
 html.light ::-webkit-scrollbar-track {
@@ -189,10 +229,11 @@ html.light ::-webkit-scrollbar-track {
 
 html.light ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
+  border-radius: 0px;
 }
 
 html.light ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #0284c7;
 }
 
 img, video, svg {
@@ -248,7 +289,7 @@ p a:hover, li a:hover, .qa-card__answer a:hover {
   padding: 0.65rem 1.15rem;
   font-weight: 700;
   font-size: 0.82rem;
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
 }
 
 .skip-link:focus {
@@ -279,11 +320,12 @@ html.light .reading-progress__bar {
 }
 
 /* ==========================================================================
-   HEADER ARHITECTURAL FIGMA — Dublu Registru (Ecosystem Bar + Sticky Nav)
-   Sincronizat cromatic cu prinpreajma.ro
+   HEADER ARHITECTURAL originZero — Dublu Registru (Sticlă Mată & Colțuri 90°)
    ========================================================================== */
 .ecosystem-bar {
-  background: #000000;
+  background: rgba(5, 5, 8, 0.78);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--border-faint);
   font-size: 0.75rem;
   padding: 0 2rem;
@@ -292,8 +334,8 @@ html.light .reading-progress__bar {
 }
 
 html.light .ecosystem-bar {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid var(--border-faint);
 }
 
 .ecosystem-bar__inner {
@@ -326,10 +368,11 @@ html.light .ecosystem-bar {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
   flex-shrink: 0;
+  border-radius: 0px;
 }
 
 html.light .brand-logo-mark {
-  border-radius: 8px;
+  border-radius: 0px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -372,7 +415,7 @@ html.light .brand-ro {
 .brand-slogan {
   display: block;
   font-family: var(--font-mono);
-  font-size: 6.4px;
+  font-size: 7.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -405,21 +448,24 @@ html.light .brand-slogan {
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.2rem;
   list-style: none;
   margin: 0;
   padding: 0.2rem;
-  background: rgba(24, 24, 27, 0.9);
+  background: rgba(18, 18, 26, 0.68);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-specular);
+  border-radius: 0px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
 html.light .ecosystem-bar__links {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  background: rgba(248, 250, 252, 0.78);
+  border: 1px solid var(--border-faint);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), var(--glass-specular);
 }
 
 .ecosystem-bar__links::-webkit-scrollbar {
@@ -436,8 +482,8 @@ html.light .ecosystem-bar__links {
   align-items: center;
   gap: 0.4rem;
   color: var(--text-secondary);
-  padding: 0.3rem 0.85rem;
-  border-radius: var(--radius-pill);
+  padding: 0.32rem 0.85rem;
+  border-radius: 0px;
   font-size: 0.74rem;
   font-weight: 500;
   white-space: nowrap;
@@ -447,12 +493,12 @@ html.light .ecosystem-bar__links {
 
 .ecosystem-bar__link:hover {
   color: var(--text-heading);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 html.light .ecosystem-bar__link:hover {
   color: #0f172a;
-  background: #f1f5f9;
+  background: rgba(15, 23, 42, 0.06);
 }
 
 .ecosystem-bar__link[aria-current="page"] {
@@ -472,7 +518,7 @@ html.light .ecosystem-bar__link[aria-current="page"] {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0px;
   background: #10b981;
   display: inline-block;
 }
@@ -481,21 +527,22 @@ html.light .ecosystem-bar__link[aria-current="page"]::before {
   background: #ffffff;
 }
 
-/* Antetul Principal Sticky — 100% pe un singur rând, aliniere prinpreajma.ro */
+/* Antetul Principal Sticky — Sticlă Mată & Colțuri Drepte 90° */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--border-faint);
+  box-shadow: var(--glass-specular);
 }
 
 html.light .site-header {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-bottom: 1px solid var(--border-faint) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04), var(--glass-specular) !important;
 }
 
 .site-header__inner {
@@ -528,7 +575,7 @@ html.light .site-header {
   width: 8px;
   height: 8px;
   background: var(--accent);
-  border-radius: 50%;
+  border-radius: 0px;
   box-shadow: 0 0 10px var(--accent-cyan-glow);
   display: inline-block;
   flex-shrink: 0;
@@ -544,25 +591,30 @@ html.light .site-header {
   flex: 1;
 }
 
-.site-nav__List {
+.site-nav__list {
   display: inline-flex;
   align-items: center;
   gap: 0.15rem;
-  background: rgba(24, 24, 27, 0.85);
+  background: rgba(18, 18, 26, 0.66);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-specular);
+  border-radius: 0px;
   padding: 0.22rem;
   overflow-x: auto;
   scrollbar-width: none;
   max-width: 100%;
+  list-style: none;
+  margin: 0;
 }
 
-html.light .site-nav__List {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+html.light .site-nav__list {
+  background: rgba(248, 250, 252, 0.78);
+  border: 1px solid var(--border-faint);
 }
 
-.site-nav__List::-webkit-scrollbar {
+.site-nav__list::-webkit-scrollbar {
   display: none;
 }
 
@@ -571,14 +623,22 @@ html.light .site-nav__List {
   font-size: 0.76rem;
   font-weight: 500;
   padding: 0.36rem 0.75rem;
-  border-radius: var(--radius-pill);
+  border-radius: 0px;
   white-space: nowrap;
-  transition: color 0.18s ease, background-color 0.18s ease;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
 }
 
 .site-nav__link:hover {
   color: var(--text-heading);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.site-nav__link.is-active {
+  color: var(--accent-bright);
+  background: var(--accent-soft);
+  border-bottom-color: var(--accent);
+  font-weight: 700;
 }
 
 html.light .site-nav__link {
@@ -587,33 +647,39 @@ html.light .site-nav__link {
 
 html.light .site-nav__link:hover {
   color: #0f172a;
-  background: #e2e8f0;
+  background: rgba(15, 23, 42, 0.06);
+}
+
+html.light .site-nav__link.is-active {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.10);
+  border-bottom-color: #0284c7;
 }
 
 /* ==========================================================================
-   THEME TOGGLE BUTTON (Identic cu prinpreajma.ro)
+   THEME TOGGLE BUTTON — Semnătura originZero (Colțuri Drepte 90° & Sticlă Mată)
    ========================================================================== */
 .theme-toggle-btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 36px !important;
-  min-width: 36px !important;
-  max-width: 36px !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  max-height: 36px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
   padding: 0 !important;
   margin: 0 !important;
-  border-radius: 9999px !important;
-  background-color: rgba(24, 24, 27, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0px !important;
+  background-color: rgba(18, 18, 26, 0.72);
+  border: 1px solid var(--border-subtle);
   color: #00f0ff;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), var(--glass-specular);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   user-select: none;
   touch-action: manipulation;
   overflow: hidden !important;
@@ -629,39 +695,42 @@ html.light .site-nav__link:hover {
 }
 
 .theme-toggle-btn:hover {
-  background-color: rgba(39, 39, 42, 1);
-  border-color: rgba(0, 240, 255, 0.5);
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 4px 14px rgba(0, 240, 255, 0.25);
+  background-color: rgba(32, 32, 44, 0.92);
+  border-color: rgba(0, 240, 255, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.25), var(--glass-specular);
 }
 
 html.light .theme-toggle-btn {
-  background-color: #ffffff !important;
-  border: 1px solid #cbd5e1 !important;
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  border: 1px solid var(--border-subtle) !important;
   color: #d97706 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), var(--glass-specular) !important;
 }
 
 html.light .theme-toggle-btn:hover {
-  background-color: #f8fafc !important;
+  background-color: #ffffff !important;
   border-color: #0284c7 !important;
   color: #0284c7 !important;
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
 }
 
-/* Primary CTA in Header (Sincronizat cu prinpreajma.ro) */
+/* Primary CTA in Header — Colțuri Drepte & Sticlă Mată */
 .site-nav__cta {
   background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: #f4f4f5 !important;
-  font-weight: 600;
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-pill);
+  font-weight: 700;
+  padding: 0.5rem 1.05rem;
+  border-radius: 0px;
   font-size: 0.76rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--glass-specular);
   transition: all 0.2s var(--ease-out-expo);
 }
 
@@ -696,10 +765,16 @@ html.light .site-nav__cta:hover {
   .site-nav__cta {
     display: none;
   }
+  .ecosystem-bar__links,
+  .site-nav__list {
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+    padding-right: 1rem;
+  }
 }
 
 /* ==========================================================================
-   HERO EDITORIAL ARHITECTURAL (Dark & Light Mode)
+   HERO EDITORIAL ARHITECTURAL (Dark & Light Mode · Sticlă Mată)
    ========================================================================== */
 @keyframes heroKenBurns {
   0% {
@@ -812,27 +887,29 @@ html.light .hero__overlay {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent-bright);
-  background: rgba(9, 9, 11, 0.85);
-  border: 1px solid var(--border-faint);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-pill);
+  background: rgba(9, 9, 14, 0.72);
+  border: 1px solid var(--border-subtle);
+  padding: 0.38rem 0.85rem;
+  border-radius: 0px;
   font-weight: 600;
   margin-bottom: 1rem;
-  backdrop-filter: blur(8px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
 }
 
 html.light .hero__kicker {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--border-subtle);
   color: #0284c7;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05), var(--glass-specular);
 }
 
 .hero__kicker::before {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0px;
   background: var(--accent);
   display: inline-block;
 }
@@ -883,17 +960,17 @@ html.light .hero__lead {
   gap: 0.75rem;
 }
 
-/* Butoane — Stil Oficial prinpreajma.ro (Dark & Light) */
+/* Butoane — Semnătura originZero (Colțuri Drepte 90° & Sticlă Mată) */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.72rem 1.35rem;
-  border-radius: 12px;
+  padding: 0.74rem 1.4rem;
+  border-radius: 0px;
   font-weight: 700;
   font-size: 0.8125rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
@@ -904,14 +981,14 @@ html.light .hero__lead {
 .btn--primary {
   background: linear-gradient(135deg, #00f0ff 0%, #0284c7 100%);
   color: #000000 !important;
-  border-color: rgba(0, 240, 255, 0.6);
-  box-shadow: 0 4px 14px rgba(0, 240, 255, 0.28);
+  border-color: rgba(0, 240, 255, 0.75);
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .btn--primary:hover {
   background: linear-gradient(135deg, #67e8f9 0%, #00f0ff 100%);
   color: #000000 !important;
-  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.45);
+  box-shadow: 0 6px 22px rgba(0, 240, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.65);
   transform: translateY(-1px);
 }
 
@@ -919,7 +996,7 @@ html.light .btn--primary {
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
   color: #ffffff !important;
   border-color: #0284c7 !important;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.28) !important;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
 }
 
 html.light .btn--primary:hover {
@@ -931,34 +1008,38 @@ html.light .btn--primary:hover {
 }
 
 .btn--secondary {
-  background: rgba(18, 18, 23, 0.85);
+  background: rgba(18, 18, 26, 0.72);
   color: #f4f4f5;
-  border-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
+  border-color: var(--border-subtle);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
 }
 
 .btn--secondary:hover {
-  background: rgba(39, 39, 42, 1);
+  background: rgba(32, 32, 46, 0.88);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: var(--border-hover);
   transform: translateY(-1px);
 }
 
 html.light .btn--secondary {
-  background: #ffffff !important;
+  background: rgba(255, 255, 255, 0.80) !important;
   color: #0f172a !important;
-  border: 1px solid #cbd5e1 !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05), var(--glass-specular) !important;
 }
 
 html.light .btn--secondary:hover {
-  background: #f1f5f9 !important;
+  background: #ffffff !important;
   color: #0284c7 !important;
-  border-color: #94a3b8 !important;
+  border-color: #0284c7 !important;
 }
 
 .btn--ghost {
-  background: transparent;
+  background: rgba(12, 12, 18, 0.45);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: var(--text-secondary);
   border-color: var(--border-faint);
   padding: 0.62rem 1.05rem;
@@ -967,30 +1048,30 @@ html.light .btn--secondary:hover {
 
 .btn--ghost:hover {
   color: var(--text-heading);
-  border-color: var(--border-subtle);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 html.light .btn--ghost {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.68);
   color: #475569;
-  border-color: #e2e8f0;
+  border-color: var(--border-faint);
 }
 
 html.light .btn--ghost:hover {
-  background: #f1f5f9;
+  background: #ffffff;
   color: #0f172a;
-  border-color: #cbd5e1;
+  border-color: #0284c7;
 }
 
-/* Panou Telemetrie & Repere (Dreapta Hero) */
+/* Panou Telemetrie & Repere (Dreapta Hero — Sticlă Mată & Colțuri 90°) */
 .hero__meta-card {
-  background: rgba(12, 12, 16, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 16, 0.68);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
   border-top: 2px solid var(--accent);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: 1.35rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -999,10 +1080,10 @@ html.light .btn--ghost:hover {
 }
 
 html.light .hero__meta-card {
-  background: rgba(255, 255, 255, 0.94) !important;
-  border: 1px solid #e2e8f0 !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  border: 1px solid var(--border-faint) !important;
   border-top: 2px solid #0284c7 !important;
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08) !important;
+  box-shadow: var(--shadow-editorial) !important;
 }
 
 .hero__meta-row {
@@ -1036,10 +1117,10 @@ html.light .hero__meta-card {
 }
 
 .motion-toggle {
-  background: rgba(18, 18, 23, 0.85);
+  background: rgba(16, 16, 24, 0.72);
   color: var(--text-secondary);
   border: 1px solid var(--border-faint);
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 0.58rem 0.95rem;
   font-size: 0.72rem;
   font-family: var(--font-mono);
@@ -1048,7 +1129,9 @@ html.light .hero__meta-card {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
   transition: all 0.2s ease;
 }
 
@@ -1058,10 +1141,10 @@ html.light .hero__meta-card {
 }
 
 html.light .motion-toggle {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.82);
   color: #334155;
-  border: 1px solid #cbd5e1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--glass-specular);
 }
 
 html.light .motion-toggle:hover {
@@ -1070,10 +1153,12 @@ html.light .motion-toggle:hover {
 }
 
 /* ==========================================================================
-   INDEXUL CELOR 5 ÎNTREBĂRI ESENȚIALE (Swiss Grid 5-Column Register)
+   INDEXUL CELOR 5 ÎNTREBĂRI ESENȚIALE (Swiss Grid 5-Column Frosted Register)
    ========================================================================== */
 .quick-answers {
   background: var(--bg-secondary);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--border-faint);
   padding: 0 2rem;
 }
@@ -1095,13 +1180,21 @@ html.light .motion-toggle:hover {
 .qa-card {
   padding: 1.85rem 1.45rem;
   border-right: 1px solid var(--border-faint);
+  border-bottom: 1px solid var(--border-faint);
   background: transparent;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
   position: relative;
+}
+
+@media (min-width: 1120px) {
+  .qa-card {
+    border-bottom: none;
+  }
 }
 
 .qa-card:hover {
   background: var(--color-surface-hover);
+  box-shadow: var(--glass-specular);
 }
 
 .qa-card__question {
@@ -1127,7 +1220,7 @@ html.light .motion-toggle:hover {
 .section {
   padding: clamp(4rem, 7vw, 6rem) 2rem;
   border-bottom: 1px solid var(--border-faint);
-  background-color: var(--bg-primary);
+  background-color: transparent;
 }
 
 .section--alt,
@@ -1138,7 +1231,7 @@ html.light .motion-toggle:hover {
 
 html.light .section--alt,
 html.light .section--warm {
-  background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+  background: rgba(241, 245, 249, 0.55);
 }
 
 @media (max-width: 768px) {
@@ -1175,16 +1268,18 @@ html.light .section--warm {
   letter-spacing: 0.08em;
   color: var(--accent-bright);
   background: var(--accent-soft);
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 240, 255, 0.28);
   padding: 0.28rem 0.75rem;
-  border-radius: var(--radius-pill);
+  border-radius: 0px;
   font-weight: 600;
   margin-bottom: 0.85rem;
 }
 
 html.light .section__kicker {
-  background: #e0f2fe;
-  border-color: #bae6fd;
+  background: rgba(224, 242, 254, 0.82);
+  border-color: rgba(2, 132, 199, 0.3);
   color: #0284c7;
 }
 
@@ -1192,7 +1287,7 @@ html.light .section__kicker {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0px;
   background: var(--accent);
   display: inline-block;
 }
@@ -1216,13 +1311,15 @@ html.light .section__kicker {
 }
 
 /* ==========================================================================
-   CÂRLIGUL NARATIV & CITATUL EDITORIAL
+   CÂRLIGUL NARATIV & CITATUL EDITORIAL (Sticlă Mată & Colțuri 90°)
    ========================================================================== */
 .narrative-hook {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
   border-left: 3px solid var(--accent);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
   margin-bottom: 3rem;
   position: relative;
@@ -1255,9 +1352,11 @@ html.light .section__kicker {
   justify-content: space-between;
   gap: 1rem;
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
   padding: 0.75rem 1.15rem;
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   margin-bottom: 3rem;
   box-shadow: var(--shadow-editorial);
 }
@@ -1266,7 +1365,7 @@ html.light .section__kicker {
   display: inline-flex;
   background: var(--bg-secondary);
   padding: 0.22rem;
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
   border: 1px solid var(--border-faint);
 }
 
@@ -1277,7 +1376,7 @@ html.light .section__kicker {
   padding: 0.45rem 1.1rem;
   font-size: 0.78rem;
   font-weight: 600;
-  border-radius: 7px;
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.2s var(--ease-out-expo);
   font-family: var(--font-sans);
@@ -1298,7 +1397,7 @@ html.light .section__kicker {
   background: var(--bg-secondary);
   border: 1px solid var(--border-faint);
   padding: 0.45rem 0.9rem;
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
 }
 
 /* Capitolele Poveștii — Editorial Magazine Split */
@@ -1381,14 +1480,22 @@ html.light .section__kicker {
   margin: 0 !important;
 }
 
-/* Figură Editorială & Etichetă Discretă */
+/* Figură Editorială & Etichetă Sticlă Mată */
 .ai-figure {
   margin: 0;
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   overflow: hidden;
   box-shadow: var(--shadow-editorial);
+  transition: border-color 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo);
+}
+
+.ai-figure:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
 }
 
 .ai-figure__img-wrap {
@@ -1415,25 +1522,26 @@ html.light .section__kicker {
   bottom: 0.75rem;
   left: 0.75rem;
   top: auto;
-  background: rgba(9, 9, 11, 0.85);
-  color: #e4e4e7;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 9, 14, 0.78);
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 0.26rem 0.65rem;
-  border-radius: var(--radius-xs);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0px;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
   z-index: 2;
 }
 
 html.light .ai-badge {
-  background: rgba(255, 255, 255, 0.92) !important;
+  background: rgba(255, 255, 255, 0.86) !important;
   color: #0f172a !important;
-  border: 1px solid rgba(15, 23, 42, 0.12) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(15, 23, 42, 0.16) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), var(--glass-specular) !important;
 }
 
 .ai-figure__caption {
@@ -1444,11 +1552,11 @@ html.light .ai-badge {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  background: var(--bg-card);
+  background: transparent;
 }
 
 /* ==========================================================================
-   BENTO CARDS & FIȘA TEHNICĂ (Glass Panels prinpreajma.ro)
+   BENTO CARDS & FIȘA TEHNICĂ (Frosted Glass Panels & Colțuri Drepte 90°)
    ========================================================================== */
 .specs-grid {
   display: grid;
@@ -1459,15 +1567,18 @@ html.light .ai-badge {
 
 .spec-box {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-top: 2px solid var(--dest-accent);
+  border-radius: 0px;
   padding: 1.5rem 1.35rem;
   box-shadow: var(--shadow-editorial);
   transition: all 0.25s var(--ease-out-expo);
 }
 
 .spec-box:hover {
-  border-color: var(--border-subtle);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
@@ -1508,8 +1619,10 @@ html.light .ai-badge {
 
 .truth-card {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: 1.75rem;
   transition: all 0.25s var(--ease-out-expo);
   position: relative;
@@ -1517,7 +1630,7 @@ html.light .ai-badge {
 }
 
 .truth-card:hover {
-  border-color: var(--border-subtle);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
@@ -1539,8 +1652,8 @@ html.light .ai-badge {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
+  border-radius: 0px;
+  background: var(--dest-accent);
   display: inline-block;
 }
 
@@ -1567,7 +1680,7 @@ html.light .ai-badge {
 }
 
 /* ==========================================================================
-   GALERIE FOTO EDITORIALĂ & LIGHTBOX
+   GALERIE FOTO EDITORIALĂ & LIGHTBOX (Bento Dinamic & Sticlă Mată)
    ========================================================================== */
 .gallery-filters {
   display: inline-flex;
@@ -1578,10 +1691,13 @@ html.light .ai-badge {
 
 .gallery-filter-btn {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: var(--text-secondary);
   border: 1px solid var(--border-faint);
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-specular);
+  padding: 0.48rem 1.05rem;
+  border-radius: 0px;
   font-size: 0.76rem;
   font-weight: 600;
   cursor: pointer;
@@ -1591,7 +1707,7 @@ html.light .ai-badge {
 
 .gallery-filter-btn:hover {
   color: var(--text-heading);
-  border-color: var(--border-subtle);
+  border-color: var(--border-hover);
 }
 
 .gallery-filter-btn[aria-pressed="true"] {
@@ -1618,15 +1734,17 @@ html.light .gallery-filter-btn[aria-pressed="true"] {
   grid-column: span 12;
   margin: 0;
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   overflow: hidden;
   box-shadow: var(--shadow-editorial);
   transition: all 0.25s var(--ease-out-expo);
 }
 
 .gallery-item:hover {
-  border-color: var(--border-subtle);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
@@ -1640,6 +1758,13 @@ html.light .gallery-filter-btn[aria-pressed="true"] {
   }
   .gallery-item--half {
     grid-column: span 6;
+  }
+  /* Când un filtru este activ, cardurile vizibile se aliniază simetric fără spații goale */
+  .editorial-gallery.is-filtered .gallery-item:not([hidden]) {
+    grid-column: span 6 !important;
+  }
+  .editorial-gallery.is-single-result .gallery-item:not([hidden]) {
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -1679,22 +1804,24 @@ html.light .gallery-filter-btn[aria-pressed="true"] {
   position: absolute;
   bottom: 0.75rem;
   right: 0.75rem;
-  background: rgba(9, 9, 11, 0.85);
+  background: rgba(9, 9, 14, 0.78);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 0.26rem 0.65rem;
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
   font-family: var(--font-mono);
   font-size: 0.64rem;
   font-weight: 600;
-  backdrop-filter: blur(10px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
 }
 
 html.light .gallery-item__zoom-hint {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.88);
   color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), var(--glass-specular);
 }
 
 .gallery-item__meta {
@@ -1716,24 +1843,27 @@ html.light .gallery-item__zoom-hint {
   margin: 0;
 }
 
-/* Lightbox Modal */
+/* Lightbox Modal — Accesibilitate WAI-ARIA & Sticlă Mată */
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 2500;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(18px);
+  background: rgba(4, 4, 8, 0.88);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1.25rem 1.75rem;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .lightbox[aria-hidden="false"] {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -1749,10 +1879,12 @@ html.light .gallery-item__zoom-hint {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: #22d3ee;
-  background: rgba(24, 24, 27, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 0.35rem 0.8rem;
-  border-radius: var(--radius-xs);
+  background: rgba(18, 18, 26, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.38rem 0.85rem;
+  border-radius: 0px;
 }
 
 .lightbox__controls {
@@ -1761,14 +1893,17 @@ html.light .gallery-item__zoom-hint {
 }
 
 .lightbox__btn {
-  background: rgba(24, 24, 27, 0.9);
+  background: rgba(18, 18, 26, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: var(--radius-xs);
-  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0px;
+  padding: 0.48rem 0.95rem;
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .lightbox__btn:hover {
@@ -1789,7 +1924,8 @@ html.light .gallery-item__zoom-hint {
   max-height: 76vh;
   max-width: 90vw;
   object-fit: contain;
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: transform 0.35s var(--ease-out-expo);
   cursor: zoom-in;
 }
@@ -1803,12 +1939,14 @@ html.light .gallery-item__zoom-hint {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(9, 9, 11, 0.88);
+  background: rgba(12, 12, 18, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.20);
   width: 44px;
   height: 44px;
-  border-radius: 9999px;
+  border-radius: 0px;
   font-size: 1.25rem;
   cursor: pointer;
   display: flex;
@@ -1848,14 +1986,16 @@ html.light .gallery-item__zoom-hint {
 }
 
 /* ==========================================================================
-   PLAYER VIDEO ÎN LIMBA ROMÂNĂ
+   PLAYER VIDEO ÎN LIMBA ROMÂNĂ (Auto-Hide Controale & Colțuri 90°)
    ========================================================================== */
 .video-showcase {
   display: grid;
   grid-template-columns: 1fr;
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: 1rem;
   box-shadow: var(--shadow-editorial);
 }
@@ -1868,7 +2008,7 @@ html.light .gallery-item__zoom-hint {
 
 .rm-player {
   position: relative;
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
   overflow: hidden;
   background: #000000;
   aspect-ratio: 16 / 9;
@@ -1892,24 +2032,26 @@ html.light .gallery-item__zoom-hint {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  background: rgba(9, 9, 11, 0.88);
+  background: rgba(10, 10, 16, 0.80);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   padding: 0.85rem 1.5rem;
-  border-radius: var(--radius-pill);
+  border-radius: 0px;
   font-weight: 700;
   font-size: 0.84rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  backdrop-filter: blur(12px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
   transition: all 0.22s var(--ease-out-expo);
 }
 
 .rm-player__big-play:hover {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: translate(-50%, -50%) scale(1.03);
   background: #00f0ff;
   color: #000000;
   border-color: #00f0ff;
@@ -1928,6 +2070,13 @@ html.light .gallery-item__zoom-hint {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.rm-player.is-playing.is-user-idle .rm-player__controls {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 }
 
 .rm-player__timeline-wrap {
@@ -1959,11 +2108,13 @@ html.light .gallery-item__zoom-hint {
 
 .rm-player__ctrl-btn,
 .rm-player__select {
-  background: rgba(24, 24, 27, 0.9);
+  background: rgba(18, 18, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #f4f4f5;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-xs);
-  padding: 0.34rem 0.68rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0px;
+  padding: 0.36rem 0.72rem;
   font-size: 0.74rem;
   font-weight: 500;
   cursor: pointer;
@@ -1971,9 +2122,9 @@ html.light .gallery-item__zoom-hint {
 }
 
 html.light .share-hub .rm-player__select {
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.88);
   color: #0f172a;
-  border-color: #cbd5e1;
+  border-color: var(--border-subtle);
 }
 
 .rm-player__ctrl-btn:hover,
@@ -1988,7 +2139,7 @@ html.light .share-hub .rm-player__select {
 }
 
 /* ==========================================================================
-   ITINERARE & HARTĂ LA CERERE
+   ITINERARE & HARTĂ LA CERERE (Sticlă Mată & Colțuri Drepte 90°)
    ========================================================================== */
 .itinerary-grid {
   display: grid;
@@ -1998,9 +2149,11 @@ html.light .share-hub .rm-player__select {
 
 .itinerary-card {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
   border-top: 2px solid var(--accent);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: 1.85rem 1.75rem;
   display: flex;
   flex-direction: column;
@@ -2011,7 +2164,7 @@ html.light .share-hub .rm-player__select {
 }
 
 .itinerary-card:hover {
-  border-color: var(--border-subtle);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
@@ -2050,8 +2203,10 @@ html.light .share-hub .rm-player__select {
 
 .map-on-demand {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   overflow: hidden;
   margin-top: 2rem;
   box-shadow: var(--shadow-editorial);
@@ -2089,12 +2244,14 @@ html.light .share-hub .rm-player__select {
 }
 
 /* ==========================================================================
-   MODUL DISTRIBUIRE & CARDURI SOCIALE
+   MODUL DISTRIBUIRE & CARDURI SOCIALE (Sticlă Mată & Colțuri 90°)
    ========================================================================== */
 .share-hub {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: clamp(1.75rem, 3.5vw, 2.5rem);
   display: grid;
   grid-template-columns: 1fr;
@@ -2114,7 +2271,7 @@ html.light .share-hub .rm-player__select {
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 0.9rem 1rem;
   font-family: var(--font-sans);
   font-size: 0.88rem;
@@ -2140,8 +2297,8 @@ html.light .share-hub .rm-player__select {
   background: var(--bg-secondary);
   color: var(--text-secondary);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-pill);
-  padding: 0.38rem 0.9rem;
+  border-radius: 0px;
+  padding: 0.4rem 0.95rem;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -2165,7 +2322,7 @@ html.light .share-hub .rm-player__select {
 .share-card-thumb {
   background: var(--bg-secondary);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
   padding: 0.5rem;
   text-align: center;
   font-size: 0.73rem;
@@ -2173,26 +2330,28 @@ html.light .share-hub .rm-player__select {
 }
 
 .share-card-thumb img {
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
   margin-bottom: 0.45rem;
   width: 100%;
   height: auto;
 }
 
 /* ==========================================================================
-   FOOTER (Sincronizat cu prinpreajma.ro)
+   FOOTER & SEMNĂTURA ARHITECTURALĂ originZero (Sticlă Mată & Colțuri 90°)
    ========================================================================== */
 .site-footer {
-  background: #000000;
+  background: rgba(5, 5, 8, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-top: 1px solid var(--border-faint);
-  padding: 3.5rem 2rem 5rem;
+  padding: 3.5rem 2rem 4rem;
   font-size: 0.84rem;
   color: var(--text-muted);
 }
 
 html.light .site-footer {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.86);
+  border-top: 1px solid var(--border-faint);
   color: #64748b;
 }
 
@@ -2212,6 +2371,132 @@ html.light .site-footer {
   margin: 0 0 0.75rem;
 }
 
+/* Bara de semnătură originZero */
+.site-footer__bottom {
+  max-width: var(--max-w);
+  margin: 2.75rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-faint);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.site-footer__origin-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-secondary);
+}
+
+.origin-zero-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 0px;
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+  display: inline-block;
+}
+
+.site-footer__signature {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.origin-zero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.72rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-left: 2px solid var(--accent);
+  border-radius: 0px;
+  box-shadow: var(--glass-specular);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--text-heading);
+}
+
+.origin-zero-badge__mark {
+  font-weight: 700;
+  color: var(--accent-bright);
+}
+
+.origin-zero-badge__sep {
+  color: var(--text-muted);
+}
+
+.origin-zero-badge__spec {
+  font-size: 0.62rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.creator-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.32rem 0.72rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-faint);
+  border-radius: 0px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  transition: all 0.2s var(--ease-out-expo);
+}
+
+.creator-link:hover {
+  color: var(--text-heading);
+  border-color: var(--border-hover);
+}
+
+@keyframes rogvaivHeartPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(229, 36, 32, 0.7)) hue-rotate(0deg);
+  }
+  20% {
+    transform: scale(1.28);
+    filter: drop-shadow(0 0 10px rgba(245, 111, 26, 0.9)) hue-rotate(90deg);
+  }
+  45% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(30, 168, 68, 0.85)) hue-rotate(180deg);
+  }
+  70% {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 8px rgba(15, 114, 205, 0.9)) hue-rotate(270deg);
+  }
+}
+
+.heart-rogvaiv-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  animation: rogvaivHeartPulse 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.heart-rogvaiv-svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
 /* Bară Mobilă */
 .mobile-action-bar {
   display: none;
@@ -2228,8 +2513,8 @@ html.light .site-footer {
     right: 0;
     z-index: 1100;
     background: var(--bg-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border-top: 1px solid var(--border-faint);
     padding: 0.55rem 0.85rem;
     display: grid;
@@ -2278,7 +2563,7 @@ body.motion-paused *::after {
 }
 
 /* ==========================================================================
-   ELEMENTE ARHITECTURALE FIGMA: ICONIȚE SVG, DIAGRAME TOPOGRAFICE & SHOWCASE
+   ELEMENTE ARHITECTURALE: ICONIȚE SVG, DIAGRAME TOPOGRAFICE & SHOWCASE
    ========================================================================== */
 .svg-icon {
   width: 15px;
@@ -2314,11 +2599,13 @@ body.motion-paused *::after {
   letter-spacing: 0;
 }
 
-/* Diagramă Topografică & Profil Altitudinal SVG (Dark & Light) */
+/* Diagramă Topografică & Profil Altitudinal SVG (Sticlă Mată & Colțuri 90°) */
 .topo-blueprint {
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: clamp(1.5rem, 3vw, 2.25rem);
   margin: 2.5rem 0;
   position: relative;
@@ -2354,7 +2641,7 @@ body.motion-paused *::after {
   background: var(--bg-secondary);
   border: 1px solid var(--border-faint);
   padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
 }
 
 .topo-blueprint__svg-wrap {
@@ -2369,26 +2656,39 @@ body.motion-paused *::after {
   display: block;
 }
 
-/* Light Mode SVG Diagram Contrast Adaptation */
+/* Light Mode SVG Diagram Contrast Adaptation — Păstrarea Codificării Cromatice */
 html.light .topo-blueprint__svg g[fill] {
-  fill: #0f172a !important;
+  fill: #0f172a;
 }
 
-html.light .topo-blueprint__svg text {
-  fill: #0f172a !important;
+html.light .topo-blueprint__svg text:not([fill]) {
+  fill: #0f172a;
 }
 
-html.light .topo-blueprint__svg text[font-size="10"],
-html.light .topo-blueprint__svg text[font-size="10.5"] {
-  fill: #475569 !important;
+html.light .topo-blueprint__svg text[fill="#c2ccc5"],
+html.light .topo-blueprint__svg text[fill="#c4cbc7"],
+html.light .topo-blueprint__svg text[fill="#c7dcd3"],
+html.light .topo-blueprint__svg text[fill="#86a69a"] {
+  fill: #475569;
 }
 
-html.light .topo-blueprint__svg circle {
-  fill: #ffffff !important;
+html.light .topo-blueprint__svg text[fill="#e5c483"],
+html.light .topo-blueprint__svg text[fill="#f3b05a"] {
+  fill: #b45309;
+}
+
+html.light .topo-blueprint__svg text[fill="#aedbce"] {
+  fill: #047857;
+}
+
+html.light .topo-blueprint__svg circle[fill="#09110e"],
+html.light .topo-blueprint__svg circle[fill="#0c100f"],
+html.light .topo-blueprint__svg circle[fill="#0b1815"] {
+  fill: #ffffff;
 }
 
 html.light .topo-blueprint__svg line {
-  stroke: #cbd5e1 !important;
+  stroke: #cbd5e1;
 }
 
 .topo-blueprint__legend {
@@ -2411,7 +2711,7 @@ html.light .topo-blueprint__svg line {
 .topo-blueprint__dot {
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: 0px;
   background: var(--accent-bright);
 }
 
@@ -2421,8 +2721,10 @@ html.light .topo-blueprint__svg line {
   grid-template-columns: 1fr;
   gap: 2.25rem;
   background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
+  border-radius: 0px;
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
   align-items: center;
   box-shadow: var(--shadow-editorial);
@@ -2451,8 +2753,9 @@ html.light .topo-blueprint__svg line {
 .editorial-stat {
   background: var(--bg-secondary);
   border: 1px solid var(--border-faint);
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
   padding: 0.85rem 0.75rem;
+  box-shadow: var(--glass-specular);
 }
 
 .editorial-stat__val {
@@ -2479,23 +2782,24 @@ html.light .topo-blueprint__svg line {
   bottom: 0.75rem;
   left: 0.75rem;
   top: auto;
-  background: rgba(9, 9, 11, 0.85);
-  color: #e4e4e7;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 9, 14, 0.78);
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 0.25rem 0.62rem;
-  border-radius: var(--radius-xs);
+  border-radius: 0px;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-specular);
   z-index: 2;
 }
 
 html.light .gallery-item__badge {
-  background: rgba(255, 255, 255, 0.92) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
   color: #0f172a !important;
-  border: 1px solid rgba(15, 23, 42, 0.12) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06), var(--glass-specular) !important;
 }

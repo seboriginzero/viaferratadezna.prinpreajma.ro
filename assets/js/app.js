@@ -185,7 +185,7 @@
   }
 
   /* --------------------------------------------------------------------------
-   * 4. Bară Progres de Lectură & Apariții Discrete la Scroll (Reveal)
+   * 4. Bară Progres de Lectură, Scroll-Spy Navigație & Apariții la Scroll
    * -------------------------------------------------------------------------- */
   var progressBar = document.querySelector(".reading-progress__bar");
   function updateProgress() {
@@ -197,6 +197,42 @@
   }
   window.addEventListener("scroll", updateProgress, { passive: true });
   updateProgress();
+
+  /* Scroll-Spy pentru secțiunile din meniul principal (.site-nav__link) */
+  var navLinks = Array.from(document.querySelectorAll('.site-nav__link[href^="#"]'));
+  if ("IntersectionObserver" in window && navLinks.length > 0) {
+    var observedSections = [];
+    navLinks.forEach(function (link) {
+      var targetId = link.getAttribute("href").slice(1);
+      var sec = document.getElementById(targetId);
+      if (sec) observedSections.push({ id: targetId, el: sec, link: link });
+    });
+
+    if (observedSections.length > 0) {
+      var spyObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var activeId = entry.target.id;
+              navLinks.forEach(function (lnk) {
+                var isMatch = lnk.getAttribute("href") === "#" + activeId;
+                lnk.classList.toggle("is-active", isMatch);
+                if (isMatch) {
+                  lnk.setAttribute("aria-current", "true");
+                } else {
+                  lnk.removeAttribute("aria-current");
+                }
+              });
+            }
+          });
+        },
+        { rootMargin: "-20% 0px -65% 0px", threshold: 0 }
+      );
+      observedSections.forEach(function (item) {
+        spyObserver.observe(item.el);
+      });
+    }
+  }
 
   if ("IntersectionObserver" in window && !prefersReduced) {
     var revealObserver = new IntersectionObserver(
@@ -220,22 +256,46 @@
   }
 
   /* --------------------------------------------------------------------------
-   * 5. Comutator Mod Poveste (Rezumat Rapid vs. Povestea Integrală)
+   * 5. Comutator Mod Poveste (WAI-ARIA Tabs + Tastatură)
    * -------------------------------------------------------------------------- */
-  var storyTabs = document.querySelectorAll("[data-story-mode-btn]");
-  var storyPanels = document.querySelectorAll("[data-story-mode-panel]");
+  var storyTabs = Array.from(document.querySelectorAll("[data-story-mode-btn]"));
+  var storyPanels = Array.from(document.querySelectorAll("[data-story-mode-panel]"));
 
-  storyTabs.forEach(function (btn) {
+  function activateStoryTab(btn, shouldFocus) {
+    var targetMode = btn.getAttribute("data-story-mode-btn");
+    storyTabs.forEach(function (b) {
+      var selected = b === btn;
+      b.setAttribute("aria-selected", selected ? "true" : "false");
+      b.setAttribute("tabindex", selected ? "0" : "-1");
+    });
+    storyPanels.forEach(function (panel) {
+      var match = panel.getAttribute("data-story-mode-panel") === targetMode;
+      panel.hidden = !match;
+    });
+    if (shouldFocus) btn.focus();
+    trackAction("schimbare_mod_lectura", { mode: targetMode });
+  }
+
+  storyTabs.forEach(function (btn, idx) {
     btn.addEventListener("click", function () {
-      var targetMode = btn.getAttribute("data-story-mode-btn");
-      storyTabs.forEach(function (b) {
-        b.setAttribute("aria-selected", b === btn ? "true" : "false");
-      });
-      storyPanels.forEach(function (panel) {
-        var match = panel.getAttribute("data-story-mode-panel") === targetMode;
-        panel.hidden = !match;
-      });
-      trackAction("schimbare_mod_lectura", { mode: targetMode });
+      activateStoryTab(btn, false);
+    });
+    btn.addEventListener("keydown", function (e) {
+      if (!storyTabs.length) return;
+      var nextIdx = -1;
+      if (e.key === "ArrowRight") {
+        nextIdx = (idx + 1) % storyTabs.length;
+      } else if (e.key === "ArrowLeft") {
+        nextIdx = (idx - 1 + storyTabs.length) % storyTabs.length;
+      } else if (e.key === "Home") {
+        nextIdx = 0;
+      } else if (e.key === "End") {
+        nextIdx = storyTabs.length - 1;
+      }
+      if (nextIdx !== -1) {
+        e.preventDefault();
+        activateStoryTab(storyTabs[nextIdx], true);
+      }
     });
   });
 
@@ -244,18 +304,37 @@
    * -------------------------------------------------------------------------- */
   document.querySelectorAll("[data-gallery-section]").forEach(function (section) {
     var filterBtns = section.querySelectorAll("[data-filter]");
+    var galleryGrid = section.querySelector(".editorial-gallery");
     var items = Array.from(section.querySelectorAll(".gallery-item"));
+
+    function applyGalleryFilter(btn) {
+      var cat = btn.getAttribute("data-filter");
+      filterBtns.forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      var visibleCount = 0;
+      items.forEach(function (item) {
+        var itemCat = item.getAttribute("data-category");
+        var isVisible = cat === "all" || itemCat === cat;
+        item.hidden = !isVisible;
+        if (isVisible) visibleCount++;
+      });
+      if (galleryGrid) {
+        galleryGrid.classList.toggle("is-filtered", cat !== "all");
+        galleryGrid.classList.toggle("is-single-result", cat !== "all" && visibleCount === 1);
+      }
+    }
 
     filterBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var cat = btn.getAttribute("data-filter");
-        filterBtns.forEach(function (b) {
-          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
-        });
-        items.forEach(function (item) {
-          var itemCat = item.getAttribute("data-category");
-          item.hidden = !(cat === "all" || itemCat === cat);
-        });
+        var motionPaused = document.body.classList.contains("motion-paused") || prefersReduced;
+        if (typeof document.startViewTransition === "function" && !motionPaused) {
+          document.startViewTransition(function () {
+            applyGalleryFilter(btn);
+          });
+        } else {
+          applyGalleryFilter(btn);
+        }
       });
     });
   });
@@ -338,9 +417,26 @@
       });
     }
 
-    /* Navigare cu tastatura în Lightbox */
+    /* Navigare cu tastatura + Focus Trap în Lightbox (WAI-ARIA Dialog) */
+    var lbFocusable = [lbZoom, lbClose, lbPrev, lbNext].filter(Boolean);
     document.addEventListener("keydown", function (e) {
       if (lightbox.getAttribute("aria-hidden") !== "false") return;
+      if (e.key === "Tab" && lbFocusable.length > 0) {
+        var firstEl = lbFocusable[0];
+        var lastEl = lbFocusable[lbFocusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl || !lightbox.contains(document.activeElement)) {
+            e.preventDefault();
+            lastEl.focus();
+          }
+        } else {
+          if (document.activeElement === lastEl || !lightbox.contains(document.activeElement)) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+        return;
+      }
       if (e.key === "Escape") {
         e.preventDefault();
         closeLightbox();
@@ -401,6 +497,23 @@
     var fsBtn = playerEl.querySelector("[data-vp-fs]");
     var showcase = playerEl.closest(".video-showcase") || document;
     var chapterBtns = showcase.querySelectorAll("[data-chapter-time]");
+    var idleTimer = null;
+
+    function resetIdleTimer() {
+      playerEl.classList.remove("is-user-idle");
+      if (idleTimer) clearTimeout(idleTimer);
+      if (!video.paused && !video.ended) {
+        idleTimer = setTimeout(function () {
+          if (!video.paused && !playerEl.contains(document.activeElement)) {
+            playerEl.classList.add("is-user-idle");
+          }
+        }, 2500);
+      }
+    }
+
+    ["mousemove", "touchstart", "keydown", "focusin"].forEach(function (evtName) {
+      playerEl.addEventListener(evtName, resetIdleTimer, { passive: true });
+    });
 
     function ensureVideoLoaded() {
       if (!video.getAttribute("src")) {
@@ -428,10 +541,13 @@
     video.addEventListener("play", function () {
       playerEl.classList.add("is-playing");
       if (playBtn) playBtn.textContent = "Pauză";
+      resetIdleTimer();
     });
 
     video.addEventListener("pause", function () {
       playerEl.classList.remove("is-playing");
+      playerEl.classList.remove("is-user-idle");
+      if (idleTimer) clearTimeout(idleTimer);
       if (playBtn) playBtn.textContent = "Redă";
     });
 
